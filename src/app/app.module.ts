@@ -10,11 +10,13 @@ import { TotalControleLancamento } from './Classes/TotalControleLancamento';
 import { ControleLancamento } from './Classes/ControleLancamento';
 import { LancamentoContaCorrenteCliente } from './Classes/LancamentoContaCorrenteCliente';
 import { DomicilioBancarioCliente } from './Classes/DomicilioBancarioCliente';
+import { GraficoComponent } from './grafico/grafico.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent,
+    GraficoComponent  
   ],
   imports: [
     BrowserModule,
