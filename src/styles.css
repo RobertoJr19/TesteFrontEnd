@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+    background-color: #CDCDCD;
+    border-right: 50px solid #ffffff;
+    border-left: 50px solid #ffffff;
+}
+
+footer{
+    position: absolute;
+    height: auto;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    text-align: center;
+    margin-left: -50px;
+    background-color: #ffffff;
+}
+
+.linhaFooter{
+    border-top: 1px solid #a7a7a7;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.creditos{
+    display: inline-block;
+    width: 250px;
+    
+}
+
+.imgLogoFooter{
+    display: inline-block;
+    margin-left: 50%;
+}
+
+.imgLogoFooter img{
+    width: 100px;
+}

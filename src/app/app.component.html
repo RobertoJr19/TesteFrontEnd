@@ -1,21 +1,70 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div classe="homePage" *ngIf="!painelDashBoard">  
+  <div class="imgLogo" (click)="pagDefault()">
+    <img class="imgLogoTopo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png">
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dafault menuCentral">  
+    <div class="containerPag1">     
+      <!--- 
+      <ul class="navbar-nav1">
+        <a class="nav-link" (click)="onClickHomePage()">
+          <li class="nav-item1">Entrar</li>
+        </a>            
+      </ul> 
+    -->
+  
+      <a class="nav-link1" (click)="onClickHomePage()"> Entrar  </a>            
+  
+    </div>   
+  </nav>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div *ngIf="painelDashBoard">  
+  <nav class="navbar navbar-expand-lg navbar-light bg-dafault">
+    <div class="logo" (click)="pagDefault()">
+      <img class="img-logo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png">
+    </div>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <a class="nav-link" (click)="onClickVisaoGeral()" *ngIf="!btnVisaoGeral">
+              <li class="nav-item">Visão Geral</li>
+            </a>
+            <a class="nav-link" (click)="onClickVisaoGeral()" *ngIf="btnVisaoGeral">
+                <li class="nav-item btnVisaoGeralSelecionado">Visão Geral</li>
+              </a>
+            <a class="nav-link" (click)="onClickControleLancamento()" *ngIf="!btnControleLancamento">
+              <li class="nav-item">Controle de lançamento</li>
+            </a>
+            <a class="nav-link" (click)="onClickControleLancamento()" *ngIf="btnControleLancamento">
+              <li class="nav-item btnControleLancamentoSelecionado">Controle de lançamento</li>
+            </a>       
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div *ngIf="painelDashBoard">
+  <div class="titulo">
+    <h1 *ngIf="!btnVisaoGeral && !btnControleLancamento">
+      {{ title }}
+    </h1>
+    <h1 *ngIf="btnVisaoGeral">
+      {{ titleVisaoGeral }}
+    </h1>
+    <h1 *ngIf="btnControleLancamento">
+      {{ titleControleLancamento }}
+    </h1>
+  </div>
+  <div class="conteudo">
+    <div class="visaoGeral" *ngIf="visaoGeral">
+      <h1>Teste conteudo Visão Geral</h1>
+    </div>
+    <div class="controleLancamento"  *ngIf="controleLancamento">
+        <h1>Teste conteudo Controle de Lançamento</h1>
+    </div>
+      <router-outlet></router-outlet>
+  </div> 
+</div>
 
-<router-outlet></router-outlet>
+
+
+
