@@ -1,3 +1,19 @@
+
+API utilizada: 'json-server'
+
+Link configurado: 'http://localhost:3000/dados-api'
+
+Obs: Arquivo presente dentro da pasta SRC com o título: 'lancamento-conta-legado.json'
+
+Comando para iniciar o serviço: 'json-server --watch src/lancamento-conta-legado.json'
+
+
+
+
+
+-------------------------------------------------------------------------
+
+
 commit 11517a9718fe980c15762d179e89a203a387f812 (HEAD -> develop)
 Author: Roberto De Assis Ribeiro Junior <rajunior1@stefanini.com>
 Date:   Tue Jul 30 10:19:11 2019 -0300

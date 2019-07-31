@@ -1,16 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* Import Bootstrap */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
 
 body{
     background-color: #CDCDCD;
     border-right: 50px solid #ffffff;
     border-left: 50px solid #ffffff;
+
 }
 
 footer{
-    position: absolute;
+    position: static;
     height: auto;
-    width: 100%;
+    width: 105%;
     padding-bottom: 50px;
     padding-top: 50px;
     text-align: center;

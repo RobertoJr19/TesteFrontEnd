@@ -74,8 +74,8 @@ export class AppComponent {
         
   }
 
+
   onClickHomePage(){
-    this.pesquisarDados();
     this.painelDashBoard = true;
     this.btnVisaoGeral = false;
     this.btnControleLancamento = false;
@@ -84,12 +84,13 @@ export class AppComponent {
   pagDefault(){
     this.visaoGeral = false;
     this.controleLancamento = false;
-    this.painelDashBoard = false;
+    this.painelDashBoard = false;    
     this.btnVisaoGeral = false;
     this.btnControleLancamento = false;
   }
 
   onClickVisaoGeral(){
+    this.pesquisarDados();
     this.btnVisaoGeral = true;
     this.btnControleLancamento = false;
     this.painelDashBoard = true;
@@ -99,6 +100,7 @@ export class AppComponent {
   }
 
   onClickControleLancamento(){
+    this.pesquisarDados();
     this.btnVisaoGeral = false;
     this.btnControleLancamento = true;
     this.painelDashBoard = true;

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { DADOSAPI } from 'src/environments/environment';
 import { DadosGerais } from './Classes/DadosGerais';
 import { TotalControleLancamento } from './Classes/TotalControleLancamento';
@@ -31,6 +32,7 @@ export class ConsultApiService {
 
   resgatarDados() {
    return this.consultApi.get(`${DADOSAPI}`)
+          
     // .subscribe(result => {
     //   this.teste = result
     //   this.dadosPesquisa = this.teste;
