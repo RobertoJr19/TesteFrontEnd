@@ -1,53 +1,90 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--<nav class="nav flex-column"> 
-    <a class="navbar-brand" href="#"><img class="img-logo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png"></a>
-           
-    <ul class="navbar-nav">
-      <a class="linkMenu" href="#">
-        <li class="nav-item active">Visão Geral</li>
-      </a>
-      <a class="linkMenu" href="#">
-        <li class="nav-item active">Controle de lançamento</li>
-      </a>  
-    </ul>    
-</nav>
--->
-  
-<nav class="navbar navbar-expand-lg navbar-light bg-dafault">
-  <div class="logo" (click)="pagDefault()">
-    <img class="img-logo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png">
+<div classe="homePage" *ngIf="!painelDashBoard">  
+  <div class="imgLogo">
+    <img class="imgLogoTopo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png">
   </div>
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-          <a class="nav-link" (click)="onClickVisaoGeral()">
-            <li class="nav-item">Visão Geral</li>
-          </a>
-          <a class="nav-link" (click)="onClickControleLancamento()">
-            <li class="nav-item">Controle de lançamento</li>
-          </a>       
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="titulo">
-  <h1>
-    {{ title }}
-  </h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dafault menuCentral">  
+    <div class="containerPag1">     
+      <a class="nav-link1" (click)="onClickHomePage()">Entrar</a>       
+    </div>   
+  </nav>
 </div>
-<div class="conteudo">
-
-  <div class="visaoGeral" *ngIf="visaoGeral">
-    <h1>Teste conteudo Visão Geral</h1>
+<div *ngIf="painelDashBoard">  
+  <nav class="navbar navbar-expand-lg navbar-light bg-dafault">
+    <div class="logo" (click)="pagDefault()">
+      <img class="img-logo" alt="Cielo_Logo" src="../assets/img/Logo_of_Cielo.svg.png">
+    </div>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <a class="nav-link" *ngIf="!btnVisaoGeral">
+              <li class="nav-item" (click)="onClickVisaoGeral()">Visão Geral</li>
+            </a>
+            <a class="nav-link" *ngIf="btnVisaoGeral">
+                <li class="nav-item btnVisaoGeralSelecionado" (click)="onClickVisaoGeral()">Visão Geral</li>
+              </a>
+            <a class="nav-link" *ngIf="!btnControleLancamento">
+              <li class="nav-item" (click)="onClickControleLancamento()">Controle de lançamento</li>
+            </a>
+            <a class="nav-link" *ngIf="btnControleLancamento">
+              <li class="nav-item btnControleLancamentoSelecionado" (click)="onClickControleLancamento()">Controle de lançamento</li>
+            </a>       
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div *ngIf="painelDashBoard">
+  <div class="titulo">
+    <h1 *ngIf="!btnVisaoGeral && !btnControleLancamento">
+      {{ title }}
+    </h1>
+    <h1 *ngIf="btnVisaoGeral">
+      {{ titleVisaoGeral }}
+    </h1>
+    <h1 *ngIf="btnControleLancamento">
+      {{ titleControleLancamento }}
+    </h1>
   </div>
-  <div class="controleLancamento"  *ngIf="controleLancamento">
-      <h1>Teste conteudo Controle de Lançamento</h1>
-  </div>
-  
+  <div class="conteudo">
+    <div class="visaoGeral" *ngIf="visaoGeral">
+       <!-- <h1>Conteúdo Visão Geral</h1> -->
+      <app-grafico></app-grafico>
+    </div>
+    <div class="controleLancamento"  *ngIf="controleLancamento">
+        <!-- <h1>Conteúdo Controle de Lançamento</h1> -->
+      <div class="extrato">
+        <ul class="painelDadosPesquisa">
+          <li> <p> CNPJ: {{ this.dadosPesquisa.numeroRaizCNPJ }} </p> </li>
+          <li> <p> Sufixo CNPJ: {{ this.dadosPesquisa.numeroSufixoCNPJ }} </p> </li>
+          <li> <p> Nome do Banco: {{ this.dadosPesquisa.nomeBanco}} </p> </li>
+          <li> <p> Qtd. Lançamento Remessas: {{ this.dadosPesquisa.quantidadeLancamentoRemessa }} </p> </li>
+          <li> <p> Valor Lançamento Remessas: R$ {{ this.dadosPesquisa.valorLancamentoRemessa}} </p> </li>
+          <li> <p> Tipo da Operação: {{ this.dadosPesquisa.nomeTipoOperacao }} </p> </li>
+          <li> <p> Status Remessa: {{ this.dadosPesquisa.nomeSituacaoRemessa }} </p> </li>          
+          <li> <p> Número Remessa Banco: {{ this.dadosPesquisa.numeroRemessaBanco }} </p> </li>
+          <li> <p> Qtd. Remessas: {{ this.dadosPesquisa.quantidadeRemessas}} </p> </li>
+          <li> <p> Qtd. Lançamentos: {{ this.dadosPesquisa.quantidadeLancamentos }} </p> </li>
+        </ul>  
+        <ul class="painelDadosPesquisa"> 
+         
+          <li> <p> Valor dos Lançamentos: R$ {{ this.dadosPesquisa.valorLancamentos }} </p> </li>          
+          <li> <p> Data do Lançamento Efetivado: {{ this.dadosPesquisa.dataEfetivaLancamento }} </p> </li>          
+          <li> <p> Grupo de Pagamento: {{ this.dadosPesquisa.descricaoGrupoPagamento}} </p> </li> 
+          <li> <p> Cod. Identificador: {{ this.dadosPesquisa.codigoIdentificadorUnico }} </p> </li>
+          <li> <p> Numero do Evento: {{ this.dadosPesquisa.numeroEvento }} </p> </li>
+          <li> <p> Código do Banco: {{ this.dadosPesquisa.codigoBanco}} </p> </li>
+          <li> <p> Número da Agência: {{ this.dadosPesquisa.numeroAgencia }} </p> </li>
+          <li> <p> Número Conta Corrente: {{ this.dadosPesquisa.numeroContaCorrente }} </p> </li>
+          <li> <p> Data do Lançamento CC: {{ this.dadosPesquisa.dataLancamentoContaCorrenteCliente }} </p> </li>
 
-    <router-outlet></router-outlet>
-</div> 
-
+          <!-- <li> <p> Total de elementos{{ this.dadosPesquisa.totalElements }} </p> </li>  -->         
+          <!-- <li> <p> Tamanho da Página{{ this.dadosPesquisa.tamanhoPagina }} </p> </li> -->     
+        </ul>       
+      </div>
+    </div>
+      <router-outlet></router-outlet>
+  </div> 
+</div>
 
 
 

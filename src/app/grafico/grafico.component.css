@@ -1,0 +1,22 @@
+/* Import CSS Chartist 
+@import "_my-chartist-settings.scss";
+@import "chartist/dist/scss/chartist.scss";
+*/
+
+#myChart{
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.pagGrafico{
+    text-align: center;
+    background-color: #ffffff;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    
+}
+
+.titulo{
+    text-align: center;
+}

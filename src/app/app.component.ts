@@ -14,7 +14,12 @@ import { ObjGeral } from './Classes/ObjGeral';
 })
 export class AppComponent {
   title = 'Painel DashBoard Cielo';
+  titleVisaoGeral = "DashBoard Visão Geral";
+  titleControleLancamento = "DashBoard Controle de Lançamento";
 
+  painelDashBoard: boolean;
+  btnVisaoGeral: boolean = false;
+  btnControleLancamento: boolean = false;
   dados: any;
   dadosPesquisa: ObjGeral = new ObjGeral;
 
@@ -29,7 +34,7 @@ export class AppComponent {
 
   }
 
-  ngOnInit(){
+  pesquisarDados(){
     this.search.resgatarDados()
     .subscribe(result => {
       this.dados = result
@@ -62,29 +67,46 @@ export class AppComponent {
      
       console.log('Variavel DadosPesquisa - Resultado final: ', this.dadosPesquisa);
     });
-
-    
   }
 
+  ngOnInit(){
+    this.painelDashBoard = false;
+        
+  }
+
+
+  onClickHomePage(){
+    this.painelDashBoard = true;
+    this.btnVisaoGeral = false;
+    this.btnControleLancamento = false;
+  }
 
   pagDefault(){
     this.visaoGeral = false;
     this.controleLancamento = false;
-    
+    this.painelDashBoard = false;    
+    this.btnVisaoGeral = false;
+    this.btnControleLancamento = false;
   }
 
   onClickVisaoGeral(){
+    this.pesquisarDados();
+    this.btnVisaoGeral = true;
+    this.btnControleLancamento = false;
+    this.painelDashBoard = true;
     this.visaoGeral = true;
-    this.controleLancamento = false;    
-    this.search.dadosGerais();
-  
+    this.controleLancamento = false;  
+      
   }
 
   onClickControleLancamento(){
+    this.pesquisarDados();
+    this.btnVisaoGeral = false;
+    this.btnControleLancamento = true;
+    this.painelDashBoard = true;
     this.visaoGeral = false;
     this.controleLancamento = true;
-
-    console.log('Controle de Lançamento: ', this.search.controleLancamento());    
+   
   }
 
 
