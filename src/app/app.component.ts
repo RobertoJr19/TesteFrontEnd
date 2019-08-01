@@ -21,7 +21,7 @@ export class AppComponent {
   btnVisaoGeral: boolean = false;
   btnControleLancamento: boolean = false;
   dados: any;
-  dadosPesquisa: ObjGeral = new ObjGeral;
+  public dadosPesquisa: ObjGeral = new ObjGeral;
 
   visaoGeral: boolean;
   controleLancamento: boolean;
