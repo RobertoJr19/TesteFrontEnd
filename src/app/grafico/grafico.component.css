@@ -8,15 +8,27 @@
     background-color: #ffffff;
 }
 
-.pagGrafico{
-    text-align: center;
-    background-color: #ffffff;
-    height: 400px;
-    width: 400px;
-    margin: 0 auto;
-    
+.painelVisaoGeral{
+    padding-top: 100px;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;   
 }
+
+.grafico{
+    
+    text-align: center;   
+    width: 380px;
+    height: auto;
+    display: inline-block;
+    padding: 20px;
+    margin: 15px;
+    margin-top: 170px;
+    background-color: #ffffff;   
+}
+
 
 .titulo{
     text-align: center;
 }
+
